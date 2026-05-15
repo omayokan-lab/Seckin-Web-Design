@@ -302,7 +302,7 @@ const TWEAKS = /*EDITMODE-BEGIN*/{
     opacity:0; transform:translateY(22px);
     transition:opacity .55s ease, transform .55s ease;
   }
-  .hero-stats > div:first-child{padding-left:0; text-align:left}
+  .hero-stats > div:first-child{padding-left:0; text-align:center}
   .hero-stats > div:last-child{border-right:0; padding-right:0}
   .hero-stats > div.stat-visible{opacity:1; transform:translateY(0)}
   .hero-stats .num{
@@ -310,6 +310,12 @@ const TWEAKS = /*EDITMODE-BEGIN*/{
     line-height:1.1;
   }
   .hero-stats .lab{font-family:var(--ff-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--mute); margin-top:8px}
+  .hero-stats .stat-ico{
+    width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center;
+    border:1px solid var(--ink); color:var(--ink); margin-bottom:14px;
+    transition:background .25s, color .25s, border-color .25s, transform .25s;
+  }
+  .hero-stats > div:hover .stat-ico{background:var(--red); border-color:var(--red); color:#fff; transform:rotate(-3deg)}
 
   /* side card in hero */
   .freight-card{
@@ -956,7 +962,7 @@ const TWEAKS = /*EDITMODE-BEGIN*/{
 <div class="topstrip">
   <div class="wrap row">
     <div class="left">
-      <span><span class="dot"></span> &nbsp; ISTANBUL · OPEN</span>
+      <span><span class="dot" id="status-dot"></span> &nbsp; ISTANBUL · <span id="status-label">OPEN</span></span>
       <span class="hide-sm">+90 532 654 27 97</span>
       <span class="hide-sm">info@seckintrade.com</span>
     </div>
@@ -1066,18 +1072,30 @@ const TWEAKS = /*EDITMODE-BEGIN*/{
     <!-- Stats -->
     <div class="hero-stats">
       <div>
+        <div class="stat-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
         <div class="num">10+<span style="font-size:.55em; color:var(--mute); margin-left:6px; letter-spacing:0">yrs</span></div>
         <div class="lab" data-i18n="hero.stat1">Regional experience</div>
       </div>
       <div>
+        <div class="stat-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+        </div>
         <div class="num">EMEA · Gulf · CIS</div>
         <div class="lab" data-i18n="hero.stat2">Active corridors</div>
       </div>
       <div>
+        <div class="stat-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-6 9 6-9 6-9-6z"/><path d="M3 15l9 6 9-6"/><path d="M3 12l9 6 9-6"/></svg>
+        </div>
         <div class="num">Multi-sector</div>
         <div class="lab" data-i18n="hero.stat3">Mandate experience</div>
       </div>
       <div>
+        <div class="stat-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
         <div class="num">Senior-led</div>
         <div class="lab" data-i18n="hero.stat4">Execution desk</div>
       </div>
@@ -1246,6 +1264,8 @@ const TWEAKS = /*EDITMODE-BEGIN*/{
         <button class="sector-tab" data-s="3"><span data-i18n="sect.tab3">Polymers &amp; Chemicals</span><span class="k">S·04</span></button>
         <button class="sector-tab" data-s="4"><span data-i18n="sect.tab4">Machinery &amp; Industrial Eqpt.</span><span class="k">S·05</span></button>
         <button class="sector-tab" data-s="5"><span data-i18n="sect.tab5">Financial / Trade Structuring</span><span class="k">S·06</span></button>
+        <button class="sector-tab" data-s="6"><span data-i18n="sect.tab6">Oil &amp; Gas</span><span class="k">S·07</span></button>
+        <button class="sector-tab" data-s="7"><span data-i18n="sect.tab7">Defense Industry</span><span class="k">S·08</span></button>
       </div>
 
       <div>
@@ -1355,6 +1375,42 @@ const TWEAKS = /*EDITMODE-BEGIN*/{
             <span class="placeholder">Fig. 03.06 — Instrument mix</span>
             <div class="big">LC<small>Primary settlement instrument</small></div>
             <div class="foot"><span>Bank-syndicate ready</span><span>Seckin Desk</span></div>
+          </div>
+        </div>
+        <div class="sector-panel">
+          <div>
+            <div class="eyebrow">Sector 07</div>
+            <h3 style="margin-top:14px">Oil &amp; Gas</h3>
+            <p>Crude, refined products and LPG flows across EMEA and CIS corridors — traded with full chain-of-custody documentation and sanctions-compliant counterparty screening.</p>
+            <ul>
+              <li><span class="c">›</span> Crude oil &amp; condensates</li>
+              <li><span class="c">›</span> Diesel · fuel oil · jet fuel</li>
+              <li><span class="c">›</span> LPG &amp; naphtha</li>
+              <li><span class="c">›</span> Bunker fuel &amp; marine gasoil</li>
+            </ul>
+          </div>
+          <div class="sector-fig">
+            <span class="placeholder">Fig. 03.07 — Corridor map</span>
+            <div class="big">S·07<small>Oil &amp; Gas desk</small></div>
+            <div class="foot"><span>Seckin Desk</span><span>EMEA · CIS</span></div>
+          </div>
+        </div>
+        <div class="sector-panel">
+          <div>
+            <div class="eyebrow">Sector 08</div>
+            <h3 style="margin-top:14px">Defense Industry</h3>
+            <p>Procurement facilitation and trade structuring for dual-use and defense-related goods — handled exclusively with licensed counterparties and full end-user certificate compliance.</p>
+            <ul>
+              <li><span class="c">›</span> Defense electronics &amp; optics</li>
+              <li><span class="c">›</span> Vehicles &amp; armored systems</li>
+              <li><span class="c">›</span> Ammunition &amp; ordnance logistics</li>
+              <li><span class="c">›</span> MRO &amp; spare parts supply</li>
+            </ul>
+          </div>
+          <div class="sector-fig">
+            <span class="placeholder">Fig. 03.08 — Compliance posture</span>
+            <div class="big">S·08<small>Defense desk</small></div>
+            <div class="foot"><span>EUC-compliant</span><span>Seckin Desk</span></div>
           </div>
         </div>
       </div>
@@ -2241,7 +2297,7 @@ const i18n = {
     nav:{ home:'Home', services:'Services', sectors:'Sectors', projects:'Projects', reach:'Global Reach', about:'About', news:'News', insights:'Insights', cta:'Contact Us' },
     hero:{ eyebrow:'Cross-border trade & advisory', h1:'Moving<br/><em>commodities</em>,<br/>capital &amp; counsel<br/>across continents.', lede1:'From a base in Istanbul, Seckin connects producers, buyers and financiers across EMEA, Central Asia and the Gulf — with the operational discipline of a trading house and the quiet judgment of a consultancy.', lede2:'Trade execution. Business development. Project delivery. Financial structuring. One mandate at a time, with a real face behind every deal.', stat1:'Regional experience', stat2:'Active corridors', stat3:'Mandate experience', stat4:'Execution desk', cta:'Start a Mandate Form', what:'What we do' },
     svc:{ num:'§ 02 — SERVICES', eyebrow:'What we do', h2:'Six disciplines,<br/><em>one desk.</em>', desc:'Each engagement is led by a senior partner. No layers, no handoffs — the person you meet is the person who runs the file. Mandates range from a single shipment to multi-year country-entry programs.', s1:{ h3:'Cross-border Commodity Trade', p:'Origination, contracting and logistics across metals, agri, polymers and construction materials. We close against LCs, SBLCs and cash — with Incoterms that actually get executed.', bestfor:'<b>Best for —</b> Exporters, buyers and trading houses moving cargo across EMEA, the Gulf and CIS.', expand:'Get more information about commodity trade' }, s2:{ h3:'Business Consulting', p:'Market-entry diagnostics, regulatory navigation, partner selection and go-to-market design for firms entering Turkey, the Gulf, CIS and North Africa.', bestfor:'<b>Best for —</b> Foreign principals planning entry into Turkey, the Gulf, CIS or North Africa.', expand:'Get more information about consulting' }, s3:{ h3:'Project Management', p:'On-the-ground delivery for industrial projects, plant relocations, turnkey procurement and staged commissioning — with weekly reporting and a single point of accountability.', bestfor:'<b>Best for —</b> Project owners and EPCs requiring on-the-ground execution and accountability.', expand:'Get more information about project management' }, s4:{ h3:'Financial Services', p:'Trade finance structuring, bank instrument handling, FX and settlement advisory — working alongside the banks you already use. Clean KYC/AML posture, end-to-end.', bestfor:'<b>Best for —</b> Counterparties structuring trade finance against bank instruments and clean compliance.', expand:'Get more information about financial services' }, s5:{ h3:'Food Products', p:'Sourcing and export of Turkish and regional food products — dry goods, packaged foodstuffs, confectionery and specialty ingredients — with HACCP documentation, halal certification and cold-chain logistics where required.', bestfor:'<b>Best for —</b> Distributors and retail buyers sourcing Turkish foodstuffs with full documentation.', expand:'Get more information about food products' }, s6:{ h3:'Business Development', p:'Representation, channel build-out and strategic partnerships for principals that need a senior presence in the region without opening an office on day one.', bestfor:'<b>Best for —</b> Principals needing a senior regional presence without opening a local office.', expand:'Get more information about business development' } },
-    sect:{ num:'§ 03 — SECTORS', eyebrow:'Where we operate', h2:'Industries we <em>understand</em><br/>well enough to trade in.', desc:"We won't take a mandate in a sector we can't price honestly. The list below is curated — not exhaustive by design.", tab0:'Metals & Minerals', tab1:'Agri & Foodstuffs', tab2:'Construction Materials', tab3:'Polymers & Chemicals', tab4:'Machinery & Industrial Eqpt.', tab5:'Financial / Trade Structuring' },
+    sect:{ num:'§ 03 — SECTORS', eyebrow:'Where we operate', h2:'Industries we <em>understand</em><br/>well enough to trade in.', desc:"We won't take a mandate in a sector we can't price honestly. The list below is curated — not exhaustive by design.", tab0:'Metals & Minerals', tab1:'Agri & Foodstuffs', tab2:'Construction Materials', tab3:'Polymers & Chemicals', tab4:'Machinery & Industrial Eqpt.', tab5:'Financial / Trade Structuring', tab6:'Oil & Gas', tab7:'Defense Industry' },
     proj:{ num:'§ 04 — SELECTED MANDATES', eyebrow:'Representative engagements', h2:"A sample of files<br/><em>we've closed.</em>", desc:'Details anonymised per NDA. Full references available on request, under appropriate confidentiality terms.', col0:'Year', col1:'Mandate type', col2:'Route', col3:'Role of Seckin', col4:'Status' },
     reach:{ num:'§ 05 — GLOBAL REACH', eyebrow:'Corridors & counterparties', h2:'Istanbul is our <em>base</em> —<br/>our desk is multi-regional.', desc:'An Istanbul headquarters connects naturally to four geographies we trade with most.', whyEyebrow:'Why Istanbul', whyH3:'A <em>single working day</em>,<br/>five regions in sequence.', whyP:'We open with Central Asia at breakfast, run mid-day with the Gulf and Europe, and close with the New York bell before dinner. One desk, no handoffs, no time lost to sleep cycles — Istanbul is the only seat where this geometry actually works.', stat1k:'Overlap with EU/Gulf', stat2k:'Shared with NYC open', stat3k:'Pre-open with Asia', ledgerHead:'Active corridors', ledgerSub:'Commodity · service' },
     about:{ num:'§ 06 — THE FIRM', eyebrow:'About Seckin', h2:'Senior-led international trade<br/>and advisory execution<br/>from <em>Istanbul.</em>', desc:'Seckin was built around a simple conviction: that the best trading firms and the best advisors behave the same way — they are patient with people and impatient with paperwork.', lede:'We run a <em>senior-only</em> desk. Every mandate is carried by someone who has sat in front of a bank, a customs officer and a counterparty — often in the same week. That\'s the only way we know how to work.', p1:'Seckin International Trade & Consulting is an Istanbul-registered firm working across five interlocking disciplines: commodity trade, business consulting, project management, financial services and business development.', p2:'We keep the partnership small on purpose. A lean team, a shared file, and the discipline to say no to mandates outside our circle of competence. The upside: you always speak to a decision-maker, documentation turns within the business day, and nothing gets lost in translation.', p3:'Our clients include mid-sized producers, sovereign-linked buyers, family offices, and international principals looking for a discreet presence in Turkey, the Gulf and beyond.', pr1t:'Discreet by default', pr1d:"We don't publish client names. Introductions happen under NDA.", pr2t:'Clean counterparties', pr2d:"Documented KYC/AML. We walk away from files we can't clear.", pr3t:'Skin in the file', pr3d:'Fee structures that align with execution, not activity.', pr4t:'One desk, one voice', pr4d:'No layers, no handoffs. The person you meet runs your mandate.' },
@@ -2254,13 +2310,13 @@ const i18n = {
     nav:{ home:'Anasayfa', services:'Hizmetler', sectors:'Sektörler', projects:'Projeler', reach:'Küresel', about:'Hakkımızda', news:'Haberler', insights:'Analizler', cta:'Bize Ulaşın' },
     hero:{ eyebrow:'Sınır ötesi ticaret ve danışmanlık', h1:'Emtia, sermaye<br/>ve <em>danışmanlığı</em>,<br/>kıtalar arasında<br/>taşıyoruz.', lede1:'İstanbul merkezli Seçkin International Trade & Consulting, EMEA, Orta Asya ve Körfez bölgelerinde faaliyet gösteren üreticileri, alıcıları ve finans kuruluşlarını; bir ticaret partnerinin operasyonel disiplini ile bir danışmanlık firmasının stratejik öngörüsünü bir araya getirerek buluşturur.', lede2:'Ticari operasyon yönetimi. İş geliştirme. Proje teslimi. Finansal yapılandırma. Her projede net sorumluluk, her anlaşmanın arkasında güçlü ve güvenilir bir temsil.', stat1:'Bölgesel deneyim', stat2:'Aktif koridorlar', stat3:'Görev deneyimi', stat4:'İcra masası', cta:'Yetki Başlatma Formu', what:'Ne yapıyoruz' },
     svc:{ num:'§ 02 — HİZMETLER', eyebrow:'Ne yapıyoruz', h2:'Altı disiplin, hepsi<br/><em>tek bir masada.</em>', desc:'Her görev kıdemli bir ortak tarafından yönetilir. Katman yok, aktarım yok — tanıştığınız kişi dosyayı yürüten kişidir. Görevler tek bir sevkiyattan çok yıllı ülke giriş programlarına kadar uzanır.', s1:{ h3:'Sınır Ötesi Emtia Ticareti', p:'Metaller, tarım ürünleri, polimerler ve yapı malzemeleri alanlarında kaynak, sözleşme ve lojistik. Gerçekten uygulanan Incoterms ile LC, SBLC ve nakit karşılığında kapanış yapıyoruz.', bestfor:'<b>İdeal için —</b> EMEA, Körfez ve BDT genelinde kargo taşıyan ihracatçılar, alıcılar ve ticaret evleri.', expand:'Emtia ticareti hakkında bilgi alın' }, s2:{ h3:'İş Danışmanlığı', p:"Türkiye, Körfez, BDT ve Kuzey Afrika'ya giren firmalar için pazar giriş tanılamaları, mevzuat yönetimi, ortak seçimi ve pazara açılma tasarımı.", bestfor:"<b>İdeal için —</b> Türkiye, Körfez, BDT veya Kuzey Afrika'ya girişi planlayan yabancı müvekkiller.", expand:'Danışmanlık hakkında bilgi alın' }, s3:{ h3:'Proje Yönetimi', p:'Endüstriyel projeler, tesis taşımaları, anahtar teslim tedarik ve aşamalı devreye alma için sahada teslimat — haftalık raporlama ve tek sorumluluk noktasıyla.', bestfor:"<b>İdeal için —</b> Sahada uygulama ve hesap verebilirlik gerektiren proje sahipleri ve EPC'ler.", expand:'Proje yönetimi hakkında bilgi alın' }, s4:{ h3:'Finansal Hizmetler', p:'Ticaret finansı yapılandırması, banka enstrümanı yönetimi, döviz ve mutabakat danışmanlığı — zaten kullandığınız bankalarla birlikte. Baştan sona temiz KYC/AML duruşu.', bestfor:'<b>İdeal için —</b> Banka enstrümanları ve temiz uyum karşısında ticaret finansı yapılandıran karşı taraflar.', expand:'Finansal hizmetler hakkında bilgi alın' }, s5:{ h3:'Gıda Ürünleri', p:'Türk ve bölgesel gıda ürünlerinin tedariki ve ihracatı — kuru ürünler, ambalajlı gıdalar, şekerlemeler ve özel malzemeler — gerektiğinde HACCP belgelendirmesi, helal sertifikası ve soğuk zincir lojistiğiyle.', bestfor:'<b>İdeal için —</b> Tam belgelendirmeyle Türk gıda ürünleri temin eden distribütörler ve perakende alıcılar.', expand:'Gıda ürünleri hakkında bilgi alın' }, s6:{ h3:'İş Geliştirme', p:"İlk günden ofis açmadan bölgede kıdemli bir varlığa ihtiyaç duyan müvekkiller için temsil, kanal geliştirme ve stratejik ortaklıklar.", bestfor:'<b>İdeal için —</b> Yerel ofis açmadan kıdemli bölgesel varlığa ihtiyaç duyan müvekkiller.', expand:'İş geliştirme hakkında bilgi alın' } },
-    sect:{ num:'§ 03 — SEKTÖRLER', eyebrow:'Faaliyet alanlarımız', h2:'Ticaretini yapabilecek<br/>düzeyde bildiğimiz <em>sektörler.</em>', desc:'Dürüstçe fiyatlandıramadığımız bir sektörde görev almayız. Aşağıdaki liste seçkidir — tasarım gereği kapsamlı değildir.', tab0:'Metaller ve Mineraller', tab1:'Tarım ve Gıda', tab2:'Yapı Malzemeleri', tab3:'Polimerler ve Kimyasallar', tab4:'Makine ve Endüstriyel Ekipman', tab5:'Finansal / Ticaret Yapılandırması' },
+    sect:{ num:'§ 03 — SEKTÖRLER', eyebrow:'Faaliyet alanlarımız', h2:'Ticaretini yapabilecek<br/>düzeyde bildiğimiz <em>sektörler.</em>', desc:'Dürüstçe fiyatlandıramadığımız bir sektörde görev almayız. Aşağıdaki liste seçkidir — tasarım gereği kapsamlı değildir.', tab0:'Metaller ve Mineraller', tab1:'Tarım ve Gıda', tab2:'Yapı Malzemeleri', tab3:'Polimerler ve Kimyasallar', tab4:'Makine ve Endüstriyel Ekipman', tab5:'Finansal / Ticaret Yapılandırması', tab6:'Petrol ve Doğalgaz', tab7:'Savunma Sanayii' },
     proj:{ num:'§ 04 — SEÇİLMİŞ GÖREVLER', eyebrow:'Temsili görevler', h2:'Tamamladığımız<br/><em>dosyalardan örnekler.</em>', desc:'Gizlilik anlaşması kapsamında anonimleştirilmiş detaylar. Uygun gizlilik koşulları altında talep üzerine tam referans sunulur.', col0:'Yıl', col1:'Görev türü', col2:'Güzergah', col3:"Seckin'in rolü", col4:'Durum' },
     reach:{ num:'§ 05 — KÜRESEL ERİŞİM', eyebrow:'Koridorlar ve karşı taraflar', h2:'İstanbul <em>üssümüz</em> —<br/>fakat masamız çok bölgeli.', desc:'İstanbul merkezi doğal olarak en çok ticaret yaptığımız dört coğrafyaya bağlanır.', whyEyebrow:'Neden İstanbul', whyH3:'<em>Tek bir çalışma günü</em>,<br/>sırayla beş bölge.', whyP:"Sabah Orta Asya ile açıyoruz, öğle saatlerinde Körfez ve Avrupa ile yürütüyoruz, akşam yemeğinden önce New York kapanışıyla kapatıyoruz. Bir masa, aktarım yok, uyku döngülerine zaman kaybı yok — bu geometrinin gerçekten işe yaradığı tek yer İstanbul.", stat1k:'AB/Körfez ile örtüşme', stat2k:'NYC açılışıyla ortak süre', stat3k:'Asya öncesi süre', ledgerHead:'Aktif koridorlar', ledgerSub:'Emtia · hizmet' },
     about:{ num:'§ 06 — FİRMA', eyebrow:'Seckin Hakkında', h2:"Uzmanlar liderliğinde uluslararası<br/>ticaret ve danışmanlık<br/><em>İstanbul'dan.</em>", desc:"Seckin basit bir inançla kuruldu: en iyi ticaret firmaları ve en iyi danışmanlar aynı şekilde davranır — insanlara sabırlı, bürokratik işlemlere sabırsızdırlar.", lede:"<em>Yalnızca kıdemli</em> bir masa işletiyoruz. Her görev, çoğu zaman aynı hafta içinde bir bankanın, bir gümrük memurunun ve bir karşı tarafın önünde oturmuş biri tarafından yürütülür. Tek bildiğimiz çalışma şekli bu.", p1:'Seckin Uluslararası Ticaret ve Danışmanlık, İstanbul kayıtlı bir firma olup beş birbiriyle bağlantılı alanda faaliyet göstermektedir: emtia ticareti, iş danışmanlığı, proje yönetimi, finansal hizmetler ve iş geliştirme.', p2:'Ortaklığı bilinçli olarak küçük tutuyoruz. Yalın bir ekip, paylaşılan bir dosya ve yetkinlik çemberimizin dışındaki görevlere hayır deme disiplini. Avantajı: her zaman bir karar vericisiyle konuşursunuz, belgeler iş günü içinde döner ve çeviride hiçbir şey kaybolmaz.', p3:"Müşterilerimiz arasında orta ölçekli üreticiler, hükümete bağlı alıcılar, aile ofisleri ve Türkiye, Körfez ve ötesinde diskreet bir varlık arayan uluslararası müvekkiller yer almaktadır.", pr1t:'Varsayılan olarak gizli', pr1d:"Müşteri isimlerini yayımlamıyoruz. Tanışmalar NDA kapsamında gerçekleşir.", pr2t:'Temiz karşı taraflar', pr2d:"Belgelenmiş KYC/AML. Geçemeyeceğimiz dosyaları bırakıyoruz.", pr3t:'Dosyada pay sahibi', pr3d:'İcraatla örtüşen, faaliyetle değil, ücret yapıları.', pr4t:'Bir masa, bir ses', pr4d:'Katman yok, aktarım yok. Tanıştığınız kişi görevinizi yürütür.' },
     news:{ num:'§ 07 — PİYASA NOTLARI', eyebrow:'Küresel son dakika haberleri', h2:'Türk ticaret ve yatırımı,<br/><em>gelişirken.</em>', desc:"Türkiye ve koridorlarıyla ilgili sınır ötesi ticaret, yatırım ve emtia manşetlerinin sürekli akışı. İsteğe bağlı güncelleme — en son çekim için yenile'ye basın.", note:'Piyasa notları yalnızca genel bilgi amaçlıdır; finansal, hukuki veya yatırım tavsiyesi niteliği taşımaz.', refresh:'Yenile', leadStory:'— Öne çıkan haber', wireHead:'Ajans · son 24 saat', readBrief:'Tam özeti oku' },
     insights:{ num:'§ 08 — ANALİZLER', eyebrow:'Masa notları', h2:"Takip<br/><em>ettiklerimiz.</em>", desc:'Koridorlar, emtialar ve sınır ötesi anlaşmaların sessiz mekaniği üzerine ara sıra yayımlanan saha notları.', learnMore:'DAHA FAZLASI İÇİN BİZİMLE İLETİŞİME GEÇİN' },
-    contact:{ num:'§ 09 — TALEP', eyebrow:'Görüşme başlatın', h2:'Teslim etmemizi<br/><em>istediğinizi söyleyin.</em>', desc:'Tüm talepler bir iş günü içinde kıdemli bir uzman tarafından incelenir ve size iletilir.', labelName:'Ad Soyad', req:'* zorunlu', labelCompany:'Şirket', labelEmail:'E-posta', labelCountry:'Ülke / şehir', labelInterest:'İlgilendiğim konu', chip1:'Emtia Ticareti', chip2:'Danışmanlık', chip3:'Proje Yönetimi', chip4:'Finansal Hizmetler', chip5:'İş Geliştirme', chip6:'Diğer', labelMsg:'Kısaca ne yapmaya çalışıyorsunuz?', nda:'Göndererek standart NDA koşullarımız kapsamında iletişime geçilmeyi kabul etmiş olursunuz. Bilgilerinizi üçüncü taraflarla paylaşmıyoruz.', submit:'Talep gönder', success:'→ Teşekkürler. Talebiniz alındı. Bir ortak 1 iş günü içinde <b>info@seckintrade.com</b> adresinden yanıt verecektir.', officeLabel:'Ofis', directLabel:'Direkt hat', directDKLabel:'Direkt hat · DK', emailLabel:'E-posta', hoursLabel:'Masa saatleri · GMT+3', monThu:'Pzt–Per', friday:'Cuma', satSun:'Cmt–Paz', byAppt:'Randevuyla' },
+    contact:{ num:'§ 09 — TALEP', eyebrow:'Görüşme başlatın', h2:'Talep ve sorularınızı<br/><em>Bize iletin.</em>', desc:'Tüm talepler bir iş günü içinde kıdemli bir uzman tarafından incelenir ve size iletilir.', labelName:'Ad Soyad', req:'* zorunlu', labelCompany:'Şirket', labelEmail:'E-posta', labelCountry:'Ülke / şehir', labelInterest:'İlgilendiğim konu', chip1:'Emtia Ticareti', chip2:'Danışmanlık', chip3:'Proje Yönetimi', chip4:'Finansal Hizmetler', chip5:'İş Geliştirme', chip6:'Diğer', labelMsg:'Kısaca ne yapmaya çalışıyorsunuz?', nda:'Göndererek standart NDA koşullarımız kapsamında iletişime geçilmeyi kabul etmiş olursunuz. Bilgilerinizi üçüncü taraflarla paylaşmıyoruz.', submit:'Talep gönder', success:'→ Teşekkürler. Talebiniz alındı. Bir ortak 1 iş günü içinde <b>info@seckintrade.com</b> adresinden yanıt verecektir.', officeLabel:'Ofis', directLabel:'Direkt hat', directDKLabel:'Direkt hat · DK', emailLabel:'E-posta', hoursLabel:'Masa saatleri · GMT+3', monThu:'Pzt–Per', friday:'Cuma', satSun:'Cmt–Paz', byAppt:'Randevuyla' },
     footer:{ tagline:"EMEA · BDT · Körfez · Güney Asya'da yürütülen görevler" }
   }
 };
@@ -2386,6 +2442,35 @@ tweaksEl.querySelectorAll('.opts').forEach(g=>{
 document.querySelectorAll('section[id]').forEach((s,i) => {
   s.setAttribute('data-screen-label', String(i+1).padStart(2,'0') + ' ' + (s.id.charAt(0).toUpperCase() + s.id.slice(1)));
 });
+
+/* ============ Istanbul office status ============ */
+(function updateOfficeStatus() {
+  const dot   = document.getElementById('status-dot');
+  const label = document.getElementById('status-label');
+  if (!dot || !label) return;
+
+  // Istanbul time is UTC+3
+  const now = new Date();
+  const ist = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Istanbul' }));
+  const day = ist.getDay();   // 0=Sun, 1=Mon … 6=Sat
+  const h   = ist.getHours();
+  const m   = ist.getMinutes();
+  const t   = h * 60 + m;    // minutes since midnight
+
+  let open = false;
+  if (day >= 1 && day <= 5) open = t >= 8*60 && t < 18*60;   // Mon–Fri 08:00–18:00
+  if (day === 6)             open = t >= 9*60 && t < 15*60;   // Sat    09:00–15:00
+
+  if (open) {
+    label.textContent = 'OPEN';
+    dot.style.background = 'var(--ok)';
+    dot.style.boxShadow  = '0 0 0 3px #2F7D5B33';
+  } else {
+    label.textContent = 'CLOSED';
+    dot.style.background = 'var(--mute)';
+    dot.style.boxShadow  = 'none';
+  }
+})();
 </script>
 
 </body>
